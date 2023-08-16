@@ -1,16 +1,11 @@
+import { useEffect } from 'react';
+import movieApi from './service/serviseBaseApi'
 export const App = () => {
+
+  useEffect(()=>{movieApi()},[])
   return (
     <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
     >
-      React homework template by Andreii))
     </div>
   );
 };
