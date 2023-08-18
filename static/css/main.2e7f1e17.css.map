@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.2e7f1e17.css","mappings":"AAAA,wBAEI,qBAAsB,CADtB,WAEJ","sources":["components/Header/Header.module.css"],"sourcesContent":[".heder{\n    height: 60px;\n    background-color: blue;\n}"],"names":[],"sourceRoot":""}
