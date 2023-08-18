@@ -50,3 +50,8 @@ input,
 textarea {
   outline: none;
 }
+
+
+.navLink:active{
+color:red;
+}

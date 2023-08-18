@@ -1,12 +1,19 @@
 import axios from 'axios';
 
-export default async function movieApi() {
-  const resp = await axios(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=ac6450da179fe421cf9742ae69a33de4`
-  );
-  console.log(resp);
-  // api_key=ac6450da179fe421cf9742ae69a33de4
-}
+export  const movieApi = axios.create({
+ baseURL:'https://api.themoviedb.org/3/',
+  headers: {
+  'Authorization':'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzY0NTBkYTE3OWZlNDIxY2Y5NzQyYWU2OWEzM2RlNCIsInN1YiI6IjY0ZGI1NWJmMDAxYmJkMDBlMzVkMzc1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QMhBhXm6B0N1kwqvUOCBJyHASuDqGrhcINSUolbmq0w',
+  // 'accept': 'application/json'
+},
+})
+// export default async function movieApi() {
+//   const resp = await axios(
+//     `https://api.themoviedb.org/3/trending/movie/day?api_key=ac6450da179fe421cf9742ae69a33de4&page=2&per_page=10`
+//   );
+//   console.log(resp);
+//   // api_key=ac6450da179fe421cf9742ae69a33de4
+// }
 
 // curl --request GET \
 //      --url https://api.themoviedb.org/3/authentication \
