@@ -2,23 +2,28 @@ import {Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Home from 'Pages/Home/Home';
 import Movies from 'Pages/Movies/Movies'
-// import Button from './Button/Button';
+import SelectedMovie from 'Pages/SelectedMovie/SelectedMovie';
+import { lazy } from 'react';
+const Cast = lazy(()=>import('./Cast/Cast')) ;
+const  Reviews =lazy(()=>import('./Reviews/Reviews')) 
 
 export const App = () => {
   console.log('app');
 
   return (
-    // <>
-    //   <Layout />
-    //   <Home />
-    // </>
 
     <Routes>
 
       <Route path="/" element={<Layout />}>
         <Route index  element={<Home />} />
         <Route path='movie' element={<Movies/>}/>
+        <Route path="selected_movie" element={<SelectedMovie/>}>
+        <Route path='cast' element={<Cast/>}/>
+        <Route path='reviews' element={<Reviews/>}/>
+
+        </Route>
         <Route path="*" element={<div>STOP</div>} />
+
       
       </Route>
     </Routes>

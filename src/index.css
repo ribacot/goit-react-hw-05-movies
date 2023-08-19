@@ -52,6 +52,6 @@ textarea {
 }
 
 
-.navLink:active{
+.navLink.active{
 color:red;
 }

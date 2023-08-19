@@ -16,7 +16,7 @@ export default function Layout() {
             
         </Container>
       </Header>
-      <Container>{Outlet}</Container>
+      <Container>{<Outlet/>}</Container>
     </>
   );
 }
