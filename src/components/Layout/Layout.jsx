@@ -4,7 +4,7 @@ import Header from 'components/Header/Header';
 import { Outlet,NavLink } from 'react-router-dom';
 
 export default function Layout() {
-  console.log('layout')
+  // console.log('layout')
   return (
     <>
       <Header>
