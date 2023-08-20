@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Container from 'components/Container/Container';
 import { fetchById } from 'components/service/serviseById';
+import Button from 'components/Button/Button';
 import css from './SelectedMovie.module.css';
 
 export default function SelectedMovie() {
@@ -22,51 +23,73 @@ export default function SelectedMovie() {
     console.log('id: ', id);
     fetchById(id).then(r => setMovie(r));
   }, [id]);
-  console.log('movie',movie)
-  const { title, poster_path, overview, genres, status,homepage } = movie;
+  console.log('movie', movie);
+  const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (
     <>
-      <div
-        className={css.bacdrop}
-        style={{
-          backgroundImage: `linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7))`,
-        }}
-      >
+      <div className="bacdrop">
         <section className={css.section_selected}>
           <Container styles={css.container_selected}>
-            <Link to={location.state?.from ?? '/'}>Go back</Link>
-            <h1>SelectedMovie</h1>
-            <h2>{title}</h2>
-            <img
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                  : defaultImg
-              }
-              alt={title}
-              width={250}
-            /><a href={homepage} target="_blank">Look it</a>
-            <h3>
-              Status: <span>{status}</span>
-            </h3>
-            {genres.length ? (
-              <ul>
-                {genres.map(({ name, id }) => (
-                  <li key={id}>{name}</li>
-                ))}
-              </ul>
-            ) : null}
-            <h3>Overview</h3>
+            <Link to={location.state?.from ?? '/'} className="navLink">
+              <Button>Go back</Button>
+            </Link>
+            <h1 className={css.title}>{title}</h1>
+ 
+            <div className={css.description}>
+              <div className={css.thumb_img}>
+                <div>
+                  <img
+                    src={
+                      poster_path
+                        ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                        : defaultImg
+                    }
+                    alt={title}
+                    width={300}
+                  />
+                </div>
+                <div className={css.status}>
+                  <h3>
+                    Status: <span>{status}</span>
+                  </h3>
 
-            <p>{overview}</p>
-          </Container>
-        </section>
-        <section>
-          <Container>
-            <NavLink to="cast">Cast </NavLink>
-            <NavLink to="reviews">Reviews</NavLink>
-            <Suspense fallback={<div>Loading...</div>}> {<Outlet />}</Suspense>
+                  {homepage && (
+                    <a href={homepage} target="blank">
+                      <Button styles={css.look_it}>Look it</Button>
+                    </a>
+                  )}
+                </div>
+
+                <div className={css.nav}>
+                  <NavLink to="cast" className="navLink">
+                    <Button>Cast</Button>
+                  </NavLink>
+                  <NavLink to="reviews" className="navLink">
+                    <Button>Reviews</Button>
+                  </NavLink>
+                </div>
+              </div>
+              <div>
+                {genres.length ? (
+                  <>
+                    <h3>Genres: </h3>
+                    <ul>
+                      {genres.map(({ name, id }) => (
+                        <li key={id}>{name}</li>
+                      ))}
+                    </ul>
+                  </>
+                ) : null}
+                <h3>Overview</h3>
+                <p className={css.overview}>{overview}</p>
+                <div>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    {<Outlet />}
+                  </Suspense>
+                </div>
+              </div>
+            </div>
           </Container>
         </section>
       </div>

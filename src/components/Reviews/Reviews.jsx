@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import fetchReviews from 'components/service/serviseRewiews';
-
+import css from './Reviews.module.css';
 export default function Reviews() {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -12,22 +12,22 @@ export default function Reviews() {
   }, [id]);
 
   return (
-    <>
-      <h1>Reviews</h1>
+    <section className={css.reviews}>
+      <h2 className={css.title}>Reviews</h2>
       {reviews.length ? (
-        <ul>
+        <ul className={css.list}>
           {reviews.map(({ author, content, id }) => {
             return (
-              <li key={id}>
-                <h3>{author}</h3>
-                <p>{content}</p>
+              <li key={id} className={css.item}>
+                <h3 className={css.title_author}>{author}</h3>
+                <p className={css.review}>{content}</p>
               </li>
             );
           })}
         </ul>
       ) : (
-        <h2>Reviews not found</h2>
+        <h3>Reviews not found</h3>
       )}
-    </>
+    </section>
   );
 }

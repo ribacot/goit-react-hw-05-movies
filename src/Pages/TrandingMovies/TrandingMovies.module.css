@@ -8,10 +8,14 @@
   margin: 0;
   padding: 0;
 }
-.list_movie {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 25px, auto;
+.link{ transition-property: box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: linear;}
+
+.link:hover{
+  /* transform: scale(1.05); */
+  box-shadow: 1px 2px 1px 0px #292a3314, 1px 3px 15px 3px #17101429,
+  0px 1px 6px 6px #0f0f1114;
+
+
 }
