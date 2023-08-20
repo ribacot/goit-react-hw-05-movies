@@ -12,20 +12,20 @@ export default function SelectedMovie() {
   const { id } = useParams();
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
   const location = useLocation();
+  const defaultImg = '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>'
 
   useEffect(() => {
+    if(!id)return 
+    console.log('id: ',id)
     fetchById(id).then(r => setMovie(r));
   }, [id]);
-  console.log('movie', movie);
   const { title, poster_path, overview, genres, status } = movie;
-  console.log('location: ', location);
   return (
     <>
       <Link to={location.state?.from??"/"}>Go back</Link>
-      {console.log('selected')}
       <h1>SelectedMovie</h1>
       <h2>{title}</h2>
-      <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title} />
+      <img src={poster_path?`https://image.tmdb.org/t/p/w500/${poster_path}`:defaultImg} alt={title} width={250} />
       <h2>
         Status: <span>{status}</span>
       </h2>
@@ -46,5 +46,4 @@ export default function SelectedMovie() {
     </>
   );
 }
-// 976573;
-// "imdb_id": "tt15789038"
+

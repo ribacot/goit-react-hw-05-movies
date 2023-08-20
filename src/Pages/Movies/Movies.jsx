@@ -1,14 +1,15 @@
-import FormSearch from 'components/FormSearch/FormSearch';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import fetchSearchMovie from 'components/service/serviseSearchMovie';
+import FormSearch from 'components/FormSearch/FormSearch';
+
 
 export default function Movies() {
   const [movies, setMovies] = useState({});
   const [serchParams, setSerchParams] = useSearchParams();
 
   const location = useLocation();
-  const backLincRef=useRef(location.state?.from??'/')
+  const backLincRef = useRef(location.state?.from ?? '/');
   const searchQwery = serchParams.get('searchQwery') ?? '';
 
   const onChenge = e => {
@@ -22,7 +23,6 @@ export default function Movies() {
     fetchSearchMovie(searchQwery)
       .then(r => setMovies(r))
       .catch(e => console.log(e));
-    console.log('submit');
   };
   const memoQwery = useRef(searchQwery);
   useEffect(() => {
@@ -30,13 +30,9 @@ export default function Movies() {
       .then(r => setMovies(r))
       .catch(e => console.log(e));
   }, [memoQwery]);
-
-  console.log('search_movies: ', movies);
-
-  console.log('backLinc ',backLincRef);
   return (
     <>
-    <Link to={backLincRef.current}>Go back</Link>
+      <Link to={backLincRef.current}>Go back</Link>
       <h1>Movies</h1>
       <FormSearch value={searchQwery} onChenge={onChenge} onSubmit={onSubmit} />
       <ul>
