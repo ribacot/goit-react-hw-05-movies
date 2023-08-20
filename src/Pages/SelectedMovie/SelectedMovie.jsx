@@ -16,14 +16,12 @@ export default function SelectedMovie() {
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
   const location = useLocation();
   const defaultImg =
-    '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   useEffect(() => {
     if (!id) return;
-    console.log('id: ', id);
     fetchById(id).then(r => setMovie(r));
   }, [id]);
-  console.log('movie', movie);
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (
@@ -35,7 +33,7 @@ export default function SelectedMovie() {
               <Button>Go back</Button>
             </Link>
             <h1 className={css.title}>{title}</h1>
- 
+
             <div className={css.description}>
               <div className={css.thumb_img}>
                 <div>
