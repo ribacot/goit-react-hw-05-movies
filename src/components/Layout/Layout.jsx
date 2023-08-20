@@ -22,9 +22,7 @@ export default function Layout() {
         </Container>
       </Header>
       <main>
-        <section>
           {<Outlet />}
-        </section>
       </main>
     </>
   );
