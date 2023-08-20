@@ -25,6 +25,8 @@ h6,
 p {
   margin: 0;
 }
+h1{ text-align: center;
+  padding-bottom: 30px;}
 
 ul {
   margin: 0;

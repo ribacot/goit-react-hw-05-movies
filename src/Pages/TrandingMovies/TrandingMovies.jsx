@@ -17,8 +17,9 @@ export default function TrandingMovies() {
     <section className={css.section_tranding}>
       <Container>
         <div className={css.bacdrop}>
+          <h1 className={css.title}>Trending Movies</h1>
           <ul className="list_movie">
-            {trendingMovies.map(({ title, id, poster_path }) => (
+            {trendingMovies.map(({ id, poster_path }) => (
               <li key={id} className={css.link}>
                 <Link to={`selected_movie/${id}`} state={{ from: location }} >
                   <TradingItem img={poster_path} />

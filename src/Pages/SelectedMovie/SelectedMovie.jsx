@@ -32,7 +32,7 @@ export default function SelectedMovie() {
             <Link to={location.state?.from ?? '/'} className="navLink">
               <Button>Go back</Button>
             </Link>
-            <h1 className={css.title}>{title}</h1>
+            <h1 >{title}</h1>
 
             <div className={css.description}>
               <div className={css.thumb_img}>
