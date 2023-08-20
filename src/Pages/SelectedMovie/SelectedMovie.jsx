@@ -21,7 +21,7 @@ export default function SelectedMovie() {
   console.log('location: ', location);
   return (
     <>
-      <Link to={location.state.from.pathname}>Go back</Link>
+      <Link to={location.state?.from??"/"}>Go back</Link>
       {console.log('selected')}
       <h1>SelectedMovie</h1>
       <h2>{title}</h2>

@@ -8,6 +8,7 @@ export default function Movies() {
   const [serchParams, setSerchParams] = useSearchParams();
 
   const location = useLocation();
+  const backLincRef=useRef(location.state?.from??'/')
   const searchQwery = serchParams.get('searchQwery') ?? '';
 
   const onChenge = e => {
@@ -32,9 +33,10 @@ export default function Movies() {
 
   console.log('search_movies: ', movies);
 
-  console.log('Movies');
+  console.log('backLinc ',backLincRef);
   return (
     <>
+    <Link to={backLincRef.current}>Go back</Link>
       <h1>Movies</h1>
       <FormSearch value={searchQwery} onChenge={onChenge} onSubmit={onSubmit} />
       <ul>
