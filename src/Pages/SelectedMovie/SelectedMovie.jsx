@@ -3,7 +3,7 @@ import {
   
   NavLink,
   Outlet,
-  useLocation,
+  // useLocation,
   useParams,
   
 } from 'react-router-dom';
@@ -15,7 +15,7 @@ import css from './SelectedMovie.module.css';
 export default function SelectedMovie() {
   const { id } = useParams();
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
-  const location = useLocation();
+  // const location = useLocation();
   // const backLincRef = useRef(location.state?.from ?? '/');
 console.log('ID',id)
   const defaultImg =
