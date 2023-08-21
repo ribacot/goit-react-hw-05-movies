@@ -25,8 +25,10 @@ h6,
 p {
   margin: 0;
 }
-h1{ text-align: center;
-  padding-bottom: 30px;}
+h1 {
+  text-align: center;
+  padding-bottom: 30px;
+}
 
 ul {
   margin: 0;
@@ -61,7 +63,6 @@ textarea {
   padding: 25px, auto;
 }
 
-
 .navLink {
   color: antiquewhite;
 }
@@ -71,4 +72,3 @@ textarea {
 .bacdrop {
   min-height: 100vh;
 }
-

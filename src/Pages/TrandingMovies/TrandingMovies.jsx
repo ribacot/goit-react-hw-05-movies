@@ -10,7 +10,9 @@ export default function TrandingMovies() {
   const location = useLocation();
 
   useEffect(() => {
-    serviseTrandingMovies().then(r => setterendingMovies(r));
+    serviseTrandingMovies()
+      .then(r => setterendingMovies(r))
+      .catch(e => console.log(e));
   }, []);
 
   return (
@@ -21,7 +23,7 @@ export default function TrandingMovies() {
           <ul className="list_movie">
             {trendingMovies.map(({ id, poster_path }) => (
               <li key={id} className={css.link}>
-                <Link to={`selected_movie/${id}`} state={{ from: location }} >
+                <Link to={`selectedmovie/${id}`} state={{ from: location }}>
                   <TradingItem img={poster_path} />
                 </Link>
               </li>

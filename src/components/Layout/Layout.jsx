@@ -6,7 +6,6 @@ import { Suspense } from 'react';
 export default function Layout() {
   const location = useLocation();
 
-  // console.log('layout')
   return (
     <>
       <Header>

@@ -8,14 +8,13 @@
   margin: 0;
   padding: 0;
 }
-.link{ transition-property: box-shadow;
+.link {
+  transition-property: box-shadow;
   transition-duration: 200ms;
-  transition-timing-function: linear;}
+  transition-timing-function: linear;
+}
 
-.link:hover{
-  /* transform: scale(1.05); */
+.link:hover {
   box-shadow: 1px 2px 1px 0px #292a3314, 1px 3px 15px 3px #17101429,
-  0px 1px 6px 6px #0f0f1114;
-
-
+    0px 1px 6px 6px #0f0f1114;
 }

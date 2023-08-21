@@ -12,7 +12,6 @@ export default function Cast() {
   useEffect(() => {
     if (!id) return;
     fetchCast(id).then(r => setCast(r.cast));
-    // console.log('id: ',id)
   }, [id]);
   return (
     <section className={css.section_cast}>
