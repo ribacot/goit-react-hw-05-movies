@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState, useRef } from 'react';
+import { Suspense, useEffect, useState, useRef, useMemo } from 'react';
 import {
   Link,
   NavLink,
@@ -15,21 +15,42 @@ export default function SelectedMovie() {
   const { id } = useParams();
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
   const location = useLocation();
+  const [bg, setBg] = useState('');
+  const bgMemo = useMemo(() => {
+    const bgM = movie.backdrop_path ?? '';
+    return bgM;
+  }, [movie]);
+
   const backLincRef = useRef(location.state?.from ?? '/');
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
+// console.log(movie)
   useEffect(() => {
     if (!id) return;
     fetchById(id)
       .then(r => setMovie(r))
       .catch(e => console.log(e));
-  }, [id]);
+    setBg(bgMemo);
+    console.log('use')
+  }, [id, bgMemo]);
+  const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
+
+  console.log(bgPath)
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (
     <>
-      <div className="bacdrop">
+      <div
+        className="bacdrop"
+        style={{
+          backgroundImage: `${bg?`linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(${bgPath})`:""}`,
+
+          backgroundPosition: 'center',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'repeat',
+        }}
+      >
         <section className={css.section_selected}>
           <Container styles={css.container_selected}>
             <Link to={backLincRef.current} className="navLink">
