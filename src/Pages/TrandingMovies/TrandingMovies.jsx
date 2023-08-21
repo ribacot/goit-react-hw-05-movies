@@ -29,8 +29,7 @@ export default function TrandingMovies() {
     <div
       className="bacdrop"
       style={{
-        backgroundImage: `linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(${bgPath})`,
-
+        backgroundImage: `${bg?`linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(${bgPath})`:""}`,
         backgroundPosition: 'center',
         backgroundSize: 'contain',
         backgroundRepeat: 'repeat',
