@@ -17,14 +17,14 @@ export default function SelectedMovie() {
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
   const location = useLocation();
   const backLincRef = useRef(location.state?.from ?? '/');
-
+console.log('ID',id)
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   useEffect(() => {
-    // if (!id) return;
-    fetchById(id).then(r => setMovie(r));
-  }, [id]);
+    if (!id) return;
+    fetchById(id).then(r => setMovie(r)).catch(e=>console.log(e));
+  }, [id])
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (
