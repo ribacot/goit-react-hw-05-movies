@@ -16,7 +16,7 @@ export default function SelectedMovie() {
   const { id } = useParams();
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
   const location = useLocation();
-  const backLincRef = useRef(location.state?.from ?? '/');
+  // const backLincRef = useRef(location.state?.from ?? '/');
 console.log('ID',id)
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
@@ -32,9 +32,9 @@ console.log('ID',id)
         <div className="bacdrop">
           <section className={css.section_selected}>
             <Container styles={css.container_selected}>
-              <Link to={backLincRef.current} className="navLink">
+              {/* <Link to={backLincRef.current} className="navLink">
                 <Button>Go back</Button>
-              </Link>
+              </Link> */}
               <h1>{title}</h1>
 
               <div className={css.description}>
