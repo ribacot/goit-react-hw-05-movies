@@ -1,10 +1,11 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState,useRef } from 'react';
 import {
   Link,
   NavLink,
   Outlet,
   useLocation,
   useParams,
+  
 } from 'react-router-dom';
 import Container from 'components/Container/Container';
 import { fetchById } from 'components/service/serviseById';
@@ -15,6 +16,8 @@ export default function SelectedMovie() {
   const { id } = useParams();
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
   const location = useLocation();
+  const backLincRef = useRef(location.state?.from ?? '/');
+
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
@@ -30,7 +33,7 @@ export default function SelectedMovie() {
         <div className="bacdrop">
           <section className={css.section_selected}>
             <Container styles={css.container_selected}>
-              <Link to={location.state?.from ?? '/'} className="navLink">
+              <Link to={backLincRef.current} className="navLink">
                 <Button>Go back</Button>
               </Link>
               <h1>{title}</h1>
@@ -83,7 +86,8 @@ export default function SelectedMovie() {
                   <h3>Overview</h3>
                   <p className={css.overview}>{overview}</p>
                   <div>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense 
+                    >
                       {<Outlet />}
                     </Suspense>
                   </div>

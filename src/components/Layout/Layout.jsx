@@ -22,7 +22,7 @@ export default function Layout() {
         </Container>
       </Header>
       <main>
-        <Suspense fallback={<div>Loading...</div>}> {<Outlet />}</Suspense>
+        <Suspense fallback={<h2>Loading...</h2>}> {<Outlet />}</Suspense>
       </main>
     </>
   );
