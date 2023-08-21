@@ -2,7 +2,7 @@ import Button from 'components/Button/Button';
 import Container from 'components/Container/Container';
 import Header from 'components/Header/Header';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
-
+import { Suspense } from 'react';
 export default function Layout() {
   const location = useLocation();
 
@@ -22,7 +22,7 @@ export default function Layout() {
         </Container>
       </Header>
       <main>
-          {<Outlet />}
+        <Suspense fallback={<div>Loading...</div>}> {<Outlet />}</Suspense>
       </main>
     </>
   );

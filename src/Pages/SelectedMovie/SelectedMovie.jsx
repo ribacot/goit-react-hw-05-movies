@@ -26,71 +26,73 @@ export default function SelectedMovie() {
 
   return (
     <>
-      <div className="bacdrop">
-        <section className={css.section_selected}>
-          <Container styles={css.container_selected}>
-            <Link to={location.state?.from ?? '/'} className="navLink">
-              <Button>Go back</Button>
-            </Link>
-            <h1 >{title}</h1>
+      {/* <Suspense> */}
+        <div className="bacdrop">
+          <section className={css.section_selected}>
+            <Container styles={css.container_selected}>
+              <Link to={location.state?.from ?? '/'} className="navLink">
+                <Button>Go back</Button>
+              </Link>
+              <h1>{title}</h1>
 
-            <div className={css.description}>
-              <div className={css.thumb_img}>
+              <div className={css.description}>
+                <div className={css.thumb_img}>
+                  <div>
+                    <img
+                      src={
+                        poster_path
+                          ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                          : defaultImg
+                      }
+                      alt={title}
+                      width={300}
+                    />
+                  </div>
+                  <div className={css.status}>
+                    <h3>
+                      Status: <span>{status}</span>
+                    </h3>
+
+                    {homepage && (
+                      <a href={homepage} target="blank">
+                        <Button styles={css.look_it}>Look it</Button>
+                      </a>
+                    )}
+                  </div>
+
+                  <div className={css.nav}>
+                    <NavLink to="cast" className="navLink">
+                      <Button>Cast</Button>
+                    </NavLink>
+                    <NavLink to="reviews" className="navLink">
+                      <Button>Reviews</Button>
+                    </NavLink>
+                  </div>
+                </div>
                 <div>
-                  <img
-                    src={
-                      poster_path
-                        ? `https://image.tmdb.org/t/p/w300/${poster_path}`
-                        : defaultImg
-                    }
-                    alt={title}
-                    width={300}
-                  />
-                </div>
-                <div className={css.status}>
-                  <h3>
-                    Status: <span>{status}</span>
-                  </h3>
-
-                  {homepage && (
-                    <a href={homepage} target="blank">
-                      <Button styles={css.look_it}>Look it</Button>
-                    </a>
-                  )}
-                </div>
-
-                <div className={css.nav}>
-                  <NavLink to="cast" className="navLink">
-                    <Button>Cast</Button>
-                  </NavLink>
-                  <NavLink to="reviews" className="navLink">
-                    <Button>Reviews</Button>
-                  </NavLink>
+                  {genres.length ? (
+                    <>
+                      <h3>Genres: </h3>
+                      <ul>
+                        {genres.map(({ name, id }) => (
+                          <li key={id}>{name}</li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : null}
+                  <h3>Overview</h3>
+                  <p className={css.overview}>{overview}</p>
+                  <div>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      {<Outlet />}
+                    </Suspense>
+                  </div>
                 </div>
               </div>
-              <div>
-                {genres.length ? (
-                  <>
-                    <h3>Genres: </h3>
-                    <ul>
-                      {genres.map(({ name, id }) => (
-                        <li key={id}>{name}</li>
-                      ))}
-                    </ul>
-                  </>
-                ) : null}
-                <h3>Overview</h3>
-                <p className={css.overview}>{overview}</p>
-                <div>
-                  <Suspense fallback={<div>Loading...</div>}>
-                    {<Outlet />}
-                  </Suspense>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
-      </div>
+            </Container>
+          </section>
+        </div>
+      {/* </Suspense> */}
     </>
   );
 }
