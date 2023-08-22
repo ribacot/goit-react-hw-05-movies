@@ -81,9 +81,8 @@ export default function SelectedMovie() {
                       <a href={homepage} target="blank">
                         <Button styles={css.look_it}>Look it</Button>
                       </a>
-                    ) && <p>No video</p>}
+                    )}
                 </div>
-
                 <div className={css.nav}>
                   <NavLink
                     to="cast"

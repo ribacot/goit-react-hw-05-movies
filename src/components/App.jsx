@@ -3,7 +3,10 @@ import Layout from './Layout/Layout';
 // import Movies from 'Pages/Movies/Movies'
 // import SelectedMovie from 'Pages/SelectedMovie/SelectedMovie';
 import { lazy } from 'react';
-import TrandingMovies from 'Pages/TrandingMovies/TrandingMovies';
+const TrandingMovies = lazy(() =>
+  import('Pages/TrandingMovies/TrandingMovies')
+);
+
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
 const SelectedMovie = lazy(() => import('Pages/SelectedMovie/SelectedMovie'));
