@@ -26,6 +26,7 @@ export default function Movies() {
       .then(r => setMovies(r))
       .catch(e => console.log(e));
   };
+
   const memoQwery = useRef(searchQwery);
   useEffect(() => {
     fetchSearchMovie(memoQwery.current)
@@ -54,7 +55,7 @@ export default function Movies() {
                 return (
                   <li key={id} className={css.link}>
                     <Link
-                      to={`/selected_movie/${id}`}
+                      to={`/selectedmovie/${id}`}
                       state={{ from: location }}
                     >
                       <div className={css.thumb_img}>

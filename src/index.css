@@ -72,4 +72,10 @@ textarea {
 }
 .bacdrop {
  min-height: 100vh;
+ background-image:  linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(../public/movie-background-collage.jpg);
+ background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+
 }

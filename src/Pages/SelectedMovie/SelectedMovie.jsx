@@ -25,30 +25,30 @@ export default function SelectedMovie() {
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
-// console.log(movie)
+  console.log(movie)
   useEffect(() => {
     if (!id) return;
     fetchById(id)
       .then(r => setMovie(r))
       .catch(e => console.log(e));
     setBg(bgMemo);
-    console.log('use')
-  }, [id, bgMemo]);
+    console.log('use');
+  }, [id,bgMemo]);
   const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
 
-  console.log(bgPath)
+  console.log(bgPath);
   const { title, poster_path, overview, genres, status, homepage } = movie;
-
+console.log(overview)
   return (
     <>
       <div
         className="bacdrop"
         style={{
-          backgroundImage: `${bg?`linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(${bgPath})`:""}`,
-
-          backgroundPosition: 'center',
-          backgroundSize: 'contain',
-          backgroundRepeat: 'repeat',
+          backgroundImage: `${
+            bg
+              ? `linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(${bgPath})`
+              : ''
+          }`,
         }}
       >
         <section className={css.section_selected}>
@@ -79,7 +79,7 @@ export default function SelectedMovie() {
                   {homepage && (
                     <a href={homepage} target="blank">
                       <Button styles={css.look_it}>Look it</Button>
-                    </a>
+                    </a>&&<p>No video</p>
                   )}
                 </div>
 

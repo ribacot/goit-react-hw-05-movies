@@ -14,7 +14,7 @@ export default function TrandingMovies() {
     const bg = trendingMovies[0] ? trendingMovies[0].backdrop_path : '';
     return bg;
   }, [trendingMovies]);
-  // console.log(trendingMoviesRef.current);
+
   useEffect(() => {
     serviseTrandingMovies()
       .then(r => setTrendingMovies(r))
@@ -22,7 +22,6 @@ export default function TrandingMovies() {
     setBg(trendingMoviesMemo);
   }, [trendingMoviesMemo]);
   const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
-  // const bg=trendingMovies[0].backdrop_path??""
   console.log('bg:', bgPath);
 
   return (
@@ -30,9 +29,6 @@ export default function TrandingMovies() {
       className="bacdrop"
       style={{
         backgroundImage: `${bg?`linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(${bgPath})`:""}`,
-        backgroundPosition: 'center',
-        backgroundSize: 'contain',
-        backgroundRepeat: 'repeat',
       }}
     >
       <section
