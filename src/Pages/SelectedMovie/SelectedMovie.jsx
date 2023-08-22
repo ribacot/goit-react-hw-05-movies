@@ -16,6 +16,7 @@ export default function SelectedMovie() {
   const [movie, setMovie] = useState({ genres: [], poster_path: '' });
   const location = useLocation();
   const [bg, setBg] = useState('');
+
   const bgMemo = useMemo(() => {
     const bgM = movie.backdrop_path ?? '';
     return bgM;
@@ -25,7 +26,6 @@ export default function SelectedMovie() {
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
-  console.log(movie)
   useEffect(() => {
     if (!id) return;
     fetchById(id)
@@ -33,12 +33,13 @@ export default function SelectedMovie() {
       .catch(e => console.log(e));
     setBg(bgMemo);
     console.log('use');
-  }, [id,bgMemo]);
-  const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
+    console.log('id:', id);
+    console.log('bgMemo: ', bgMemo);
+  }, [id, bgMemo]);
 
-  console.log(bgPath);
+  const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
   const { title, poster_path, overview, genres, status, homepage } = movie;
-console.log(overview)
+
   return (
     <>
       <div
@@ -77,17 +78,25 @@ console.log(overview)
                   </h3>
 
                   {homepage && (
-                    <a href={homepage} target="blank">
-                      <Button styles={css.look_it}>Look it</Button>
-                    </a>&&<p>No video</p>
-                  )}
+                      <a href={homepage} target="blank">
+                        <Button styles={css.look_it}>Look it</Button>
+                      </a>
+                    ) && <p>No video</p>}
                 </div>
 
                 <div className={css.nav}>
-                  <NavLink to="cast" className="navLink">
+                  <NavLink
+                    to="cast"
+                    state={{ from: location }}
+                    className="navLink"
+                  >
                     <Button>Cast</Button>
                   </NavLink>
-                  <NavLink to="reviews" className="navLink">
+                  <NavLink
+                    to="reviews"
+                    state={{ from: location }}
+                    className="navLink"
+                  >
                     <Button>Reviews</Button>
                   </NavLink>
                 </div>

@@ -1,5 +1,5 @@
 import serviseTrandingMovies from 'components/service/serviseTrandingMovies';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import css from './TrandingMovies.module.css';
 import TradingItem from './TradingItem/TradingItem';
@@ -7,33 +7,17 @@ import Container from 'components/Container/Container';
 
 export default function TrandingMovies() {
   const [trendingMovies, setTrendingMovies] = useState([]);
-  const [bg, setBg] = useState('');
   const location = useLocation();
-
-  const trendingMoviesMemo = useMemo(() => {
-    const bg = trendingMovies[0] ? trendingMovies[0].backdrop_path : '';
-    return bg;
-  }, [trendingMovies]);
 
   useEffect(() => {
     serviseTrandingMovies()
       .then(r => setTrendingMovies(r))
       .catch(e => console.log(e));
-    setBg(trendingMoviesMemo);
-  }, [trendingMoviesMemo]);
-  const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
-  console.log('bg:', bgPath);
+  }, []);
 
   return (
-    <div
-      className="bacdrop"
-      style={{
-        backgroundImage: `${bg?`linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(${bgPath})`:""}`,
-      }}
-    >
-      <section
-        className={css.section_tranding}
-      >
+    <div className="bacdrop">
+      <section className={css.section_tranding}>
         <Container>
           <div className={css.bacdrop}>
             <h1 className={css.title}>Trending Movies</h1>
