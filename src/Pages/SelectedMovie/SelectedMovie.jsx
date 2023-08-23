@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState, useRef, useMemo } from 'react';
+import { Suspense, useEffect, useState, useRef} from 'react';
 import {
   Link,
   NavLink,
@@ -17,10 +17,6 @@ export default function SelectedMovie() {
   const location = useLocation();
   const [bg, setBg] = useState('');
 
-  const bgMemo = useMemo(() => {
-    const bgM = movie.backdrop_path ?? '';
-    return bgM;
-  }, [movie]);
 
   const backLincRef = useRef(location.state?.from ?? '/');
   const defaultImg =
@@ -31,13 +27,13 @@ export default function SelectedMovie() {
     fetchById(id)
       .then(r => setMovie(r))
       .catch(e => console.log(e));
-    setBg(bgMemo);
+    setBg(prev=>{if(prev===movie.backdrop_path)return ;return movie.backdrop_path});
     console.log('use');
     console.log('id:', id);
-    console.log('bgMemo: ', bgMemo);
-  }, [id, bgMemo]);
+  }, [id, movie.backdrop_path]);
 
   const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
+  console.log('bg',bg)
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (

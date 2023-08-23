@@ -1,10 +1,13 @@
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useParams,  NavLink } from 'react-router-dom';
+import { useEffect, useState,  } from 'react';
 import fetchReviews from 'components/service/serviseRewiews';
 import css from './Reviews.module.css';
+
 export default function Reviews() {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
+  // const location = useLocation();
+  // const backLincRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     if (!id) return;
@@ -14,6 +17,10 @@ export default function Reviews() {
   return (
     <section className={css.reviews}>
       <h2 className={css.title}>Reviews</h2>
+      <NavLink to={`/selectedmovie/${id}`} className="navLink">
+        Close
+      </NavLink>
+
       {reviews.length ? (
         <ul className={css.list}>
           {reviews.map(({ author, content, id }) => {

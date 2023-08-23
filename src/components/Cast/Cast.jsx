@@ -1,6 +1,6 @@
 import fetchCast from 'components/service/serviseCast';
-import { NavLink, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useState,useRef } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import css from './Cast.module.css';
 
 export default function Cast() {
@@ -8,11 +8,6 @@ export default function Cast() {
   const { id } = useParams();
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
-const location=useLocation();
-
-const backLincRef = useRef(location.state?.from ?? '/');
-
-// console.log('location',location.state.from)
 
   useEffect(() => {
     if (!id) return;
@@ -22,7 +17,9 @@ const backLincRef = useRef(location.state?.from ?? '/');
     <section className={css.section_cast}>
       <div>
         <h2 className={css.title}>Cast</h2>
-        <NavLink to={backLincRef.current} className="navLink">Close</NavLink>
+        <NavLink to={`/selectedmovie/${id}`} className="navLink">
+          Close
+        </NavLink>
       </div>
       <ul className={css.list}>
         {cast.map(({ character, name, profile_path, id }) => {
