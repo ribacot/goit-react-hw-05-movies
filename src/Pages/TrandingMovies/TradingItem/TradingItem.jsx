@@ -4,7 +4,7 @@ export default function TradingItem({ img }) {
     <>
       <div className={css.decor_img}>
         <img
-          src={`https://image.tmdb.org/t/p/w300/${img}`}
+          src={`https://image.tmdb.org/t/p/w342/${img}`}
           alt="poster"
           width={300}
         />

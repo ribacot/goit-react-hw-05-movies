@@ -6,12 +6,12 @@ import TradingItem from './TradingItem/TradingItem';
 import Container from 'components/Container/Container';
 
 export default function TrandingMovies() {
-  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
     serviseTrandingMovies()
-      .then(r => setTrendingMovies(r))
+      .then(r => setMovies(r))
       .catch(e => console.log(e));
   }, []);
 
@@ -22,7 +22,7 @@ export default function TrandingMovies() {
           <div className={css.bacdrop}>
             <h1 className={css.title}>Trending Movies</h1>
             <ul className="list_movie">
-              {trendingMovies.map(({ id, poster_path }) => (
+              {movies.map(({ id, poster_path }) => (
                 <li key={id} className={css.link}>
                   <Link to={`selectedmovie/${id}`} state={{ from: location }}>
                     <TradingItem img={poster_path} />

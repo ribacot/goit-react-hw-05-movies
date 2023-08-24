@@ -32,7 +32,7 @@ export default function SelectedMovie() {
     console.log('id:', id);
   }, [id, movie.backdrop_path]);
 
-  const bgPath = `https://image.tmdb.org/t/p/w500/${bg}`;
+  const bgPath = `https://image.tmdb.org/t/p/w300/${bg}`;
   console.log('bg',bg)
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
@@ -61,7 +61,7 @@ export default function SelectedMovie() {
                   <img
                     src={
                       poster_path
-                        ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                        ? `https://image.tmdb.org/t/p/w342/${poster_path}`
                         : defaultImg
                     }
                     alt={title}
