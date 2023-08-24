@@ -13,8 +13,7 @@ export default function Movies() {
 
   const location = useLocation();
   const backLincRef = useRef(location.state?.from ?? '/');
-  const searchQwery = serchParams.get('searchQwery') ?? '';
-
+  let searchQwery = serchParams.get('searchQwery') ?? '';
   const onChenge = e => {
     const nextParams = e.target.value;
     if (nextParams === '') return setSerchParams({});
@@ -27,13 +26,6 @@ export default function Movies() {
       .then(r => setMovies(r))
       .catch(e => console.log(e));
   };
-
-  // const memoQwery = useRef(searchQwery);
-  // useEffect(() => {
-  //   fetchSearchMovie(memoQwery.current)
-  //     .then(r => setMovies(r))
-  //     .catch(e => console.log(e));
-  // }, [memoQwery]);
 
   return (
     <div className="bacdrop">
