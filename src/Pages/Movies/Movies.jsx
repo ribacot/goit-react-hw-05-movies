@@ -1,12 +1,12 @@
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, lazy, Suspense } from 'react';
 import fetchSearchMovie from 'components/service/serviseSearchMovie';
 import FormSearch from 'components/FormSearch/FormSearch';
 import css from './Movies.module.css';
 import Button from 'components/Button/Button';
 import Container from 'components/Container/Container';
-import ListMovies from 'components/ListMovies/ListMovies';
-
+// import ListMovies from 'components/ListMovies/ListMovies';
+const ListMovies = lazy(() => import('components/ListMovies/ListMovies'));
 export default function Movies() {
   const [movies, setMovies] = useState({});
   const [serchParams, setSerchParams] = useSearchParams();
@@ -40,7 +40,9 @@ export default function Movies() {
             onChenge={onChenge}
             onSubmit={onSubmit}
           />
-          <ListMovies movies={movies.results} />
+          <Suspense  fallback={<h2>Loading...</h2>}>
+            <ListMovies movies={movies.results} />
+          </Suspense>
         </Container>
       </section>
     </div>

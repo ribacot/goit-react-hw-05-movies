@@ -3,7 +3,6 @@ import MovieItem from 'components/MovieItem/MovieItem';
 
 export default function ListMovies({ movies }) {
   const location = useLocation();
-  console.log(movies);
   return (
     <ul className="list_movie">
       {movies?.length ? (
@@ -15,7 +14,7 @@ export default function ListMovies({ movies }) {
           </li>
         ))
       ) : (
-        <h2>Not found</h2>
+        <h2>No movies</h2>
       )}
     </ul>
   );
