@@ -1,4 +1,4 @@
-import { useParams,  NavLink } from 'react-router-dom';
+import { useParams,  Link } from 'react-router-dom';
 import { useEffect, useState,  } from 'react';
 import fetchReviews from 'components/service/serviseRewiews';
 import css from './Reviews.module.css';
@@ -17,9 +17,9 @@ export default function Reviews() {
   return (
     <section className={css.reviews}>
       <h2 className={css.title}>Reviews</h2>
-      <NavLink to={`/selectedmovie/${id}`} className="navLink">
+      <Link to={`/selectedmovie/${id}`} className="navLink">
         Close
-      </NavLink>
+      </Link>
 
       {reviews.length ? (
         <ul className={css.list}>

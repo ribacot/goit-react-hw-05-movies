@@ -1,5 +1,5 @@
 import fetchCast from 'components/service/serviseCast';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import css from './Cast.module.css';
 
@@ -15,12 +15,12 @@ export default function Cast() {
   }, [id]);
   return (
     <section className={css.section_cast}>
-      <div>
+      {/* <div> */}
         <h2 className={css.title}>Cast</h2>
-        <NavLink to={`/selectedmovie/${id}`} className="navLink">
-          Close
-        </NavLink>
-      </div>
+        <Link to={`/selectedmovie/${id}`} className="close">
+         X
+        </Link>
+      {/* </div> */}
       <ul className={css.list}>
         {cast.map(({ character, name, profile_path, id }) => {
           return (

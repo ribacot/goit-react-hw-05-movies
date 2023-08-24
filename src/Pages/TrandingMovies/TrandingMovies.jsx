@@ -8,19 +8,18 @@ export default function TrandingMovies() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    console.log('use')
+    if (movies.length) return;
     serviseTrandingMovies()
       .then(r => setMovies(r))
       .catch(e => console.log(e));
-  }, []);
-
+  }, [movies.length]);
   return (
     <div className="bacdrop">
       <section className={css.section_tranding}>
         <Container>
           <div className={css.bacdrop}>
             <h1 className={css.title}>Trending Movies</h1>
-            <ListMovies movies={movies} />
+            {!!movies.length && <ListMovies movies={movies} />}
           </div>
         </Container>
       </section>

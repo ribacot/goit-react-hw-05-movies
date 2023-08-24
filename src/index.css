@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 30px;
   color: white;
 }
 
@@ -68,7 +69,7 @@ textarea {
   color: antiquewhite;
 }
 .active {
-  color: red;
+  color: rgb(156, 241, 91);
 }
 .bacdrop {
  min-height: 100vh;
@@ -79,3 +80,17 @@ textarea {
  background-attachment: fixed;
 
 }
+
+.close{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 20px;
+/* padding: 20px; */
+border-radius: 50%;
+background-color: red;
+
+}
+

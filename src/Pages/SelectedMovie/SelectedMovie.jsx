@@ -10,6 +10,7 @@ import Container from 'components/Container/Container';
 import { fetchById } from 'components/service/serviseById';
 import Button from 'components/Button/Button';
 import css from './SelectedMovie.module.css';
+import cssBtn from '../../components/Button/Button.module.css'
 
 export default function SelectedMovie() {
   const { id } = useParams();
@@ -71,15 +72,26 @@ export default function SelectedMovie() {
                   />
                 </div>
                 <div className={css.status}>
-                  <h3>
-                    Status: <span>{status}</span>
-                  </h3>
-                  {homepage && (
-                    <a href={homepage} target="blank">
-                      <Button styles={css.look_it}>Look it</Button>
-                    </a>
-                  )}
+                  <h3>Status:</h3>
+                  <span
+                    className={css.span_status}
+                    style={{
+                      color: `${
+                        status?.toLowerCase() === 'released'
+                          ? ' rgb(156, 241, 91)'
+                          : 'red'
+                      }`,
+                    }}
+                  >
+                    {status}
+                  </span>
                 </div>
+                {homepage && (
+                  <a href={homepage} target="blank" className={`${css.look_it} ${cssBtn.buttonNav}`}>Look it
+                  </a>
+                )}
+                    {/* <Button styles={css.look_it} homepage={homepage}>Look it</Button> */}
+
                 <div className={css.nav}>
                   <NavLink
                     to="cast"

@@ -5,6 +5,7 @@ import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 export default function Layout() {
   const location = useLocation();
+  console.log('location', location)
 
   return (
     <>

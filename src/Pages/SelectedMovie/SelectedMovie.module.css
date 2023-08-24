@@ -4,7 +4,7 @@
 
 .description {
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 .overview {
   margin: 0;
@@ -18,12 +18,12 @@
 .status {
   display: flex;
   justify-content: space-between;
+  align-items:baseline ;
   
 }
 .nav{
     display: flex;
     justify-content: space-between;
-    gap: 40px;
 }
 .look_it{
     color:aliceblue;
