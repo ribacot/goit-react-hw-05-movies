@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState, useRef} from 'react';
+import { Suspense, useEffect, useState, useRef } from 'react';
 import {
   Link,
   NavLink,
@@ -17,7 +17,6 @@ export default function SelectedMovie() {
   const location = useLocation();
   const [bg, setBg] = useState('');
 
-
   const backLincRef = useRef(location.state?.from ?? '/');
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
@@ -27,13 +26,16 @@ export default function SelectedMovie() {
     fetchById(id)
       .then(r => setMovie(r))
       .catch(e => console.log(e));
-    setBg(prev=>{if(prev===movie.backdrop_path)return ;return movie.backdrop_path});
+    setBg(prev => {
+      if (prev === movie.backdrop_path) return;
+      return movie.backdrop_path;
+    });
     console.log('use');
     console.log('id:', id);
   }, [id, movie.backdrop_path]);
 
   const bgPath = `https://image.tmdb.org/t/p/w300/${bg}`;
-  console.log('bg',bg)
+  console.log('bg', bg);
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (
@@ -72,12 +74,11 @@ export default function SelectedMovie() {
                   <h3>
                     Status: <span>{status}</span>
                   </h3>
-
                   {homepage && (
-                      <a href={homepage} target="blank">
-                        <Button styles={css.look_it}>Look it</Button>
-                      </a>
-                    )}
+                    <a href={homepage} target="blank">
+                      <Button styles={css.look_it}>Look it</Button>
+                    </a>
+                  )}
                 </div>
                 <div className={css.nav}>
                   <NavLink

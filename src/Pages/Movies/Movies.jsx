@@ -1,10 +1,11 @@
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import fetchSearchMovie from 'components/service/serviseSearchMovie';
 import FormSearch from 'components/FormSearch/FormSearch';
 import css from './Movies.module.css';
 import Button from 'components/Button/Button';
 import Container from 'components/Container/Container';
+import ListMovies from 'components/ListMovies/ListMovies';
 
 export default function Movies() {
   const [movies, setMovies] = useState({});
@@ -27,14 +28,12 @@ export default function Movies() {
       .catch(e => console.log(e));
   };
 
-  const memoQwery = useRef(searchQwery);
-  useEffect(() => {
-    fetchSearchMovie(memoQwery.current)
-      .then(r => setMovies(r))
-      .catch(e => console.log(e));
-  }, [memoQwery]);
-  const defaultImg =
-    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+  // const memoQwery = useRef(searchQwery);
+  // useEffect(() => {
+  //   fetchSearchMovie(memoQwery.current)
+  //     .then(r => setMovies(r))
+  //     .catch(e => console.log(e));
+  // }, [memoQwery]);
 
   return (
     <div className="bacdrop">
@@ -49,34 +48,7 @@ export default function Movies() {
             onChenge={onChenge}
             onSubmit={onSubmit}
           />
-          <ul className="list_movie">
-            {movies.total_results ? (
-              movies.results.map(({ title, poster_path, id }) => {
-                return (
-                  <li key={id} className={css.link}>
-                    <Link
-                      to={`/selectedmovie/${id}`}
-                      state={{ from: location }}
-                    >
-                      <div className={css.thumb_img}>
-                        <img
-                          src={
-                            poster_path
-                              ? `https://image.tmdb.org/t/p/w200/${poster_path}`
-                              : defaultImg
-                          }
-                          alt={title}
-                          width={300}
-                        />
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })
-            ) : (
-              <h2>Not found</h2>
-            )}
-          </ul>
+          <ListMovies movies={movies.results} />
         </Container>
       </section>
     </div>

@@ -1,15 +1,14 @@
 import serviseTrandingMovies from 'components/service/serviseTrandingMovies';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import css from './TrandingMovies.module.css';
-import TradingItem from './TradingItem/TradingItem';
 import Container from 'components/Container/Container';
+import ListMovies from 'components/ListMovies/ListMovies';
 
 export default function TrandingMovies() {
   const [movies, setMovies] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
+    console.log('use')
     serviseTrandingMovies()
       .then(r => setMovies(r))
       .catch(e => console.log(e));
@@ -21,15 +20,7 @@ export default function TrandingMovies() {
         <Container>
           <div className={css.bacdrop}>
             <h1 className={css.title}>Trending Movies</h1>
-            <ul className="list_movie">
-              {movies.map(({ id, poster_path }) => (
-                <li key={id} className={css.link}>
-                  <Link to={`selectedmovie/${id}`} state={{ from: location }}>
-                    <TradingItem img={poster_path} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <ListMovies movies={movies} />
           </div>
         </Container>
       </section>
