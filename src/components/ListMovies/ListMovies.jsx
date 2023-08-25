@@ -4,7 +4,7 @@ import MovieItem from 'components/MovieItem/MovieItem';
 export default function ListMovies({ movies }) {
   const location = useLocation();
   return (
-    <ul className="list_movie">
+    <ul className="list_movies">
       {movies?.length ? (
         movies?.map(({ id, poster_path }) => (
           <li key={id} className="link">

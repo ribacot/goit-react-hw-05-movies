@@ -16,12 +16,10 @@ export default function TrandingMovies() {
   return (
     <div className="bacdrop">
       <section className={css.section_tranding}>
-        <Container>
-          <div className={css.bacdrop}>
+          <Container>
             <h1 className={css.title}>Trending Movies</h1>
             {!!movies.length && <ListMovies movies={movies} />}
-          </div>
-        </Container>
+          </Container>
       </section>
     </div>
   );
