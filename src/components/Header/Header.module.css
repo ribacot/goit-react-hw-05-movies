@@ -8,7 +8,16 @@
   background-color: rgb(2, 8, 41);
 }
 nav {
+  outline: 1px solid red;
+  max-width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+
+  /* gap: 20px; */
+}
+@media screen and (min-width: 768px) {
+  nav {
+    justify-content: flex-start;
+    gap: 30px;
+  }
 }

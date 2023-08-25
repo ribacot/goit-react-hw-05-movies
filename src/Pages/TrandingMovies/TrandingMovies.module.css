@@ -2,12 +2,6 @@
   padding-top: 80px;
 }
 
-/* .bacdrop {
-  width: 100%;
-  min-height: 150vw;
-  margin: 0;
-  padding: 0;
-} */
 .link {
   transition-property: box-shadow;
   transition-duration: 200ms;
