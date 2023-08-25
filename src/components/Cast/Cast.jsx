@@ -15,12 +15,10 @@ export default function Cast() {
   }, [id]);
   return (
     <section className={css.section_cast}>
-      {/* <div> */}
-        <h2 className={css.title}>Cast</h2>
-        <Link to={`/selectedmovie/${id}`} className="close">
-         X
-        </Link>
-      {/* </div> */}
+      <h2 className={css.title}>Cast</h2>
+      <Link to={`/selectedmovie/${id}`} className="close">
+        X
+      </Link>
       <ul className={css.list}>
         {cast.map(({ character, name, profile_path, id }) => {
           return (

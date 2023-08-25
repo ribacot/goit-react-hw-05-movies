@@ -1,16 +1,22 @@
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  useSearchParams,
+  useOutletContext,
+} from 'react-router-dom';
 import { useState, useRef, lazy, Suspense } from 'react';
 import fetchSearchMovie from 'components/service/serviseSearchMovie';
 import FormSearch from 'components/FormSearch/FormSearch';
 import css from './Movies.module.css';
 import Button from 'components/Button/Button';
 import Container from 'components/Container/Container';
-// import ListMovies from 'components/ListMovies/ListMovies';
 const ListMovies = lazy(() => import('components/ListMovies/ListMovies'));
+
 export default function Movies() {
   const [movies, setMovies] = useState({});
   const [serchParams, setSerchParams] = useSearchParams();
 
+  const [padding] = useOutletContext();
   const location = useLocation();
   const backLincRef = useRef(location.state?.from ?? '/');
   let searchQwery = serchParams.get('searchQwery') ?? '';
@@ -29,7 +35,7 @@ export default function Movies() {
 
   return (
     <div className="bacdrop">
-      <section className={css.section_search}>
+      <section style={{ paddingTop: `${padding + 10}px` }}>
         <Container>
           <Link to={backLincRef.current} className="navLink">
             <Button>Go back</Button>
@@ -40,7 +46,7 @@ export default function Movies() {
             onChenge={onChenge}
             onSubmit={onSubmit}
           />
-          <Suspense  fallback={<h2>Loading...</h2>}>
+          <Suspense fallback={<h2>Loading...</h2>}>
             <ListMovies movies={movies.results} />
           </Suspense>
         </Container>

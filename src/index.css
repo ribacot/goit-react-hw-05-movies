@@ -1,6 +1,8 @@
 @import-normalize;
 /* bring in normalize.css styles */
-
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -62,7 +64,6 @@ textarea {
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
-  /* padding: 25px,0; */
 }
 
 .navLink {
@@ -72,25 +73,26 @@ textarea {
   color: rgb(156, 241, 91);
 }
 .bacdrop {
- min-height: 100vh;
- /* width: 100vw; */
- background-image:  linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),url(./img/movie-background-collage-min.jpg);
- background-position: center;
- background-size: cover;
- background-repeat: no-repeat;
- background-attachment: fixed;
-
+  min-height: 100vh;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(./img/movie-background-collage-min.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.close{
+.close {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30px;
   height: 30px;
   margin-bottom: 20px;
-/* padding: 20px; */
-border-radius: 50%;
-background-color: red;
-
+  /* padding: 20px; */
+  border-radius: 50%;
+  background-color: red;
 }

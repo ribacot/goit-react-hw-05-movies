@@ -1,22 +1,31 @@
 .buttonNav {
   color: inherit;
-  padding: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  min-width: 140px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 100px;
   border: none;
   border-radius: 15px;
   color: inherit;
-  font-size: inherit;
+  font-size: 25px;
   text-align: center;
   background-color: rgb(97, 130, 239);
   transition-property: box-shadow, transform;
   transition-duration: 200ms;
   transition-timing-function: linear;
 }
+@media screen and (min-width: 768px) {
+  .buttonNav {
+    min-width: 140px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: inherit;
+  }
+}
 
-.buttonNav:hover{
-    transform: scale(1.05);
-    box-shadow: 1px 2px 1px 0px #2e2f4214, 1px 3px 15px 3px #422e3a29,
-      0px 1px 6px 1px #2e2f4214;
+.buttonNav:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 2px 1px 0px #2e2f4214, 1px 3px 15px 3px #422e3a29,
+    0px 1px 6px 1px #2e2f4214;
 }

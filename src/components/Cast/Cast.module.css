@@ -1,17 +1,17 @@
-.section_cast{
-    padding-top: 20px;
-    padding-bottom: 20px;
+.section_cast {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
-.title{
-    text-align: center;
-    padding-bottom: 20px;
+.title {
+  text-align: center;
+  padding-bottom: 20px;
 }
-.list{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 10px;
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
 }
-.profile{
-    max-width: 150px;
+.profile {
+  max-width: 150px;
 }

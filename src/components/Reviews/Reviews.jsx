@@ -1,13 +1,11 @@
-import { useParams,  Link } from 'react-router-dom';
-import { useEffect, useState,  } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import fetchReviews from 'components/service/serviseRewiews';
 import css from './Reviews.module.css';
 
 export default function Reviews() {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
-  // const location = useLocation();
-  // const backLincRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     if (!id) return;
