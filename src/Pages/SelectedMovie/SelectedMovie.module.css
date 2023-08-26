@@ -1,7 +1,13 @@
 .description {
   display: flex;
+  flex-direction: column;
   gap: 30px;
 }
+@media screen and (min-width: 768px) {
+  .description {
+    flex-direction: row;
+  }}
+
 .overview {
   margin: 0;
 }

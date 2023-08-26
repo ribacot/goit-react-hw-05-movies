@@ -24,18 +24,20 @@ export default function Cast() {
           return (
             <li key={id}>
               <div className={css.profile}>
-                <img
-                  src={
-                    profile_path
-                      ? `https://image.tmdb.org/t/p/w200/${profile_path}`
-                      : defaultImg
-                  }
-                  alt={character}
-                  width={150}
-                />
-                <div>
+                <div className={css.imgBox}>
+                  <img
+                    src={
+                      profile_path
+                        ? `https://image.tmdb.org/t/p/w200/${profile_path}`
+                        : defaultImg
+                    }
+                    alt={character}
+                    width={150}
+                  />
+                </div>
+                <div className={css.descriptionProfile}>
                   <h3>{name}</h3>
-                  <h4>Character: "{character}"</h4>
+                  <p>Character: "{character}"</p>
                 </div>
               </div>
             </li>

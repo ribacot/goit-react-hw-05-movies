@@ -13,5 +13,21 @@
   gap: 10px;
 }
 .profile {
-  max-width: 150px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
+@media screen and (min-width: 768px) {
+  .profile {
+flex-direction: column;
+
+  }}
+
+  .imgBox{
+    width: 150px;
+    object-fit: cover;
+  }
+
+ .descriptionProfile{
+  font-size: 16px;
+ }
