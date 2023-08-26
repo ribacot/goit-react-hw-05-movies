@@ -9,25 +9,35 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
 }
 .profile {
+  width: 150px;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 2px 1px 0px #9193bb14, 0px 1px 1px 0px #9b9cc129,
+    0px 1px 1px 0px #a1a2bc14;
 }
 @media screen and (min-width: 768px) {
   .profile {
-flex-direction: column;
-
-  }}
-
-  .imgBox{
-    width: 150px;
-    object-fit: cover;
+    flex-direction: column;
   }
+}
 
- .descriptionProfile{
+.imgBox {
+  width: 150px;
+}
+
+.descriptionProfile {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
   font-size: 16px;
- }
+  background-color: rgba(93, 93, 93,0.4);
+}

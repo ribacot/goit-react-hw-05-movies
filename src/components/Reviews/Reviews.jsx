@@ -15,8 +15,8 @@ export default function Reviews() {
   return (
     <section className={css.reviews}>
       <h2 className={css.title}>Reviews</h2>
-      <Link to={`/selectedmovie/${id}`} className="navLink">
-        Close
+      <Link to={`/selectedmovie/${id}`} className="close">
+        X
       </Link>
 
       {reviews.length ? (
