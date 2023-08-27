@@ -9,7 +9,7 @@ export default function Reviews() {
 
   useEffect(() => {
     if (!id) return;
-    fetchReviews(id).then(r => setReviews(r.results));
+    fetchReviews(id).then(r => setReviews(r.results)).catch(e=>console.log(e));
   }, [id]);
 
   return (

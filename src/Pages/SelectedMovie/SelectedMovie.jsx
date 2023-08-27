@@ -28,11 +28,11 @@ export default function SelectedMovie() {
     fetchById(id)
       .then(r => setMovie(r))
       .catch(e => console.log(e));
-    setBg(prev => {
-      if (prev === movie.backdrop_path) return;
-      return movie.backdrop_path;
-    });
-  }, [id, movie.backdrop_path]);
+  }, [id]);
+
+  useEffect(() => {
+    setBg(setBg(movie.backdrop_path));
+  }, [movie.backdrop_path]);
 
   const bgPath = `https://image.tmdb.org/t/p/w300/${bg}`;
   const { title, poster_path, overview, genres, status, homepage } = movie;
@@ -93,7 +93,6 @@ export default function SelectedMovie() {
                     Look it
                   </a>
                 )}
-                {/* <Button styles={css.look_it} homepage={homepage}>Look it</Button> */}
 
                 <div className={css.nav}>
                   <NavLink
@@ -112,19 +111,21 @@ export default function SelectedMovie() {
                   </NavLink>
                 </div>
               </div>
-              <div>
+              <div className={css.descriptionMovie}>
                 {genres.length ? (
-                  <>
-                    <h3>Genres: </h3>
+                  <div className={css.genres}>
+                    <h3 className={css.subTitledescriptionMovie}>Genres: </h3>
                     <ul>
                       {genres.map(({ name, id }) => (
                         <li key={id}>{name}</li>
                       ))}
                     </ul>
-                  </>
+                  </div>
                 ) : null}
-                <h3>Overview</h3>
-                <p className={css.overview}>{overview}</p>
+                <div className={css.overview}>
+                  <h3 className={css.subTitledescriptionMovie}>Overview</h3>
+                  <p>{overview}</p>
+                </div>
                 <div>
                   <Suspense fallback={<h2>Loading...</h2>}>
                     {<Outlet />}

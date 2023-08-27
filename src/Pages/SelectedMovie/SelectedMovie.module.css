@@ -7,8 +7,12 @@
   .description {
     flex-direction: row;
   }}
-
-.overview {
+.descriptionMovie{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.overview,.genres {
   margin: 0;
 }
 .thumb_img {
@@ -33,4 +37,7 @@
 .title {
   text-align: center;
   padding-bottom: 20px;
+}
+.subTitledescriptionMovie{
+  padding-bottom: 10px;
 }
