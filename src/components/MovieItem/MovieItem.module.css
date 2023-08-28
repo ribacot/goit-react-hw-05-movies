@@ -3,3 +3,14 @@
   border-radius: 10px;
   /* max-width: 230px; */
 }
+.linkMovie{
+  transition-property:  transform;
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+
+}
+
+
+.linkMovie:hover{
+  transform: scale(1.01);
+}

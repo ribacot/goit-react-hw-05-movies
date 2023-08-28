@@ -31,7 +31,7 @@ export default function Cast() {
                         ? `https://image.tmdb.org/t/p/w185/${profile_path}`
                         : defaultImg
                     }
-                    alt={character}
+                    alt={character} style={{width:150, height:225}}
                   />
                 </div>
                 <div className={css.descriptionProfile}>

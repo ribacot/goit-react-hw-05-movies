@@ -31,10 +31,11 @@ export default function SelectedMovie() {
   }, [id]);
 
   useEffect(() => {
-    setBg(setBg(movie.backdrop_path));
+   setBg(movie.backdrop_path);
   }, [movie.backdrop_path]);
 
   const bgPath = `https://image.tmdb.org/t/p/w300/${bg}`;
+  console.log(bg)
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (
@@ -66,7 +67,7 @@ export default function SelectedMovie() {
                         : defaultImg
                     }
                     alt={title}
-                    width={300}
+                    style={{width:300, height:450}}
                   />
                 </div>
                 <div className={css.status}>
