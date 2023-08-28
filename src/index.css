@@ -63,7 +63,7 @@ textarea {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 25px;
 }
 
 .navLink {
@@ -78,7 +78,7 @@ textarea {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(./img/movie-background-collage-min.jpg);
+    url(./img/movie-background-collage-min_375-min.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

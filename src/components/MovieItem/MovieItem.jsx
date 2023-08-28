@@ -9,7 +9,7 @@ export default function TradingItem({ img }) {
         <img
           src={img ? `https://image.tmdb.org/t/p/w342/${img}` : defaultImg}
           alt="poster"
-          width={300}
+          style={{ width: 230, height: 345 }}
         />
       </div>
     </>
