@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/901.2e286fae.chunk.css","mappings":"AAAA,4BAEE,kBAAmB,CADnB,eAGF","sources":["components/MovieItem/MovieItem.module.css"],"sourcesContent":[".decor_img {\n  overflow: hidden;\n  border-radius: 10px;\n  /* max-width: 230px; */\n}\n"],"names":[],"sourceRoot":""}
