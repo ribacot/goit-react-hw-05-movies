@@ -59,6 +59,10 @@ input,
 textarea {
   outline: none;
 }
+section{
+  padding-bottom: 20px;
+}
+
 .list_movies {
   display: flex;
   justify-content: center;
