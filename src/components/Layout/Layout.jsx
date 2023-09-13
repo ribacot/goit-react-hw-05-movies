@@ -9,6 +9,7 @@ export default function Layout() {
   const [height, setHeight] = useState(0);
   const isHeight = h => {
     setHeight(h);
+    console.log(h)
   };
 
   return (
@@ -27,7 +28,6 @@ export default function Layout() {
       </Header>
       <main>
         <Suspense fallback={<h2>Loading...</h2>}>
-          {' '}
           {<Outlet context={[height]} />}
         </Suspense>
       </main>
