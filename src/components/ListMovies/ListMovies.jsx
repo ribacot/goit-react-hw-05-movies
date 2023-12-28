@@ -4,7 +4,6 @@ import css from './ListMovies.module.css'
 
 export default function ListMovies({ movies }) {
   const location = useLocation();
-  console.log(movies)
   return (
     <ul className="list_movies">
       {movies?.length ? (

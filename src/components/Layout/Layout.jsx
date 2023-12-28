@@ -9,7 +9,6 @@ export default function Layout() {
   const [height, setHeight] = useState(0);
   const isHeight = h => {
     setHeight(h);
-    console.log(h)
   };
 
   return (

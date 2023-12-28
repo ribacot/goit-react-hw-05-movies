@@ -35,7 +35,6 @@ export default function SelectedMovie() {
   }, [movie.backdrop_path]);
 
   const bgPath = `https://image.tmdb.org/t/p/w300/${bg}`;
-  console.log(bg)
   const { title, poster_path, overview, genres, status, homepage } = movie;
 
   return (
