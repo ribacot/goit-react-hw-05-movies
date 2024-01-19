@@ -78,7 +78,7 @@ section{
   color: rgb(156, 241, 91);
 }
 .bacdrop {
-  min-height: 100vh;
+  min-height: 100svh;
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
