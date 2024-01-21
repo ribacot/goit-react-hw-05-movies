@@ -4,13 +4,14 @@ import css from './ListMovies.module.css'
 
 export default function ListMovies({ movies }) {
   const location = useLocation();
+  console.log(movies)
   return (
     <ul className="list_movies">
       {movies?.length ? (
-        movies?.map(({ id, poster_path,title }) => (
-          <li key={id} className="link">
-            <Link to={`/selectedmovie/${id}`} state={{ from: location }} className={css.linkMovie}>
-              <MovieItem img={poster_path} title={title}/>
+        movies?.map((movie) => (
+          <li key={movie.id} className="link">
+            <Link to={`/selectedmovie/${movie.id}`} state={{ from: location }} className={css.linkMovie}>
+              <MovieItem movie={movie}/>
             </Link>
           </li>
         ))
